@@ -6,8 +6,8 @@
   --ink-soft:   #2A3C57;
   --paper:      #FAF7F2;   /* warm off-white background */
   --paper-dim:  #F1ECE3;
-  --signal:     #2E6FF2;   /* trust blue — links, primary actions */
-  --signal-dark:#1E54C9;
+  --signal:     #65779b;   /* trust blue — links, primary actions */
+  --signal-dark:#374f7e;
   --warm:       #E8623D;   /* sparing accent — one CTA highlight, stamp */
   --slate:      #5B6472;   /* secondary text */
   --line:       #DCD5C7;   /* hairline borders, warm-toned */
@@ -124,7 +124,7 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; color: var(--ink); let
   margin-bottom: 22px;
 }
 .hl {
-  color: var(--signal);
+  color: var(--signal-dark);
   position: relative;
 }
 
