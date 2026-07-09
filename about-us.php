@@ -1,0 +1,198 @@
+<?php include 'inc.php' ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Atlas Softwares | Our Story</title>
+<meta name="description" content="Learn about Atlas Softwares, our mission, expertise, and commitment to delivering high-quality web design and development services.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Atlas Softwares">
+<meta property="og:description" content="Professional Web Design & Development Company">
+<meta property="og:url" content="https://atlassoftwares.com/">
+<meta property="og:image" content="https://atlassoftwares.com/assets/images/og-image.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Atlas Softwares">
+<meta name="twitter:description" content="Professional Website Development Company">
+<meta name="twitter:image" content="https://atlassoftwares.com/assets/images/og-image.png">
+
+<link rel="canonical" href="https://atlassoftwares.com/about-us.html">
+
+<?php include 'headerinc.php' ?>
+
+</head>
+<body>
+
+<?php include 'header.php' ?>
+
+
+<main id="top">
+
+  <!-- ===== ABOUT HERO ===== -->
+  <section class="about-hero">
+    <div class="about-hero-orbit" aria-hidden="true"></div>
+    <div class="about-hero-blob" aria-hidden="true"></div>
+    <div class="about-hero-grid" aria-hidden="true"></div>
+    <div class="about-hero-inner">
+      <p class="eyebrow"><span class="eyebrow-dot"><svg viewBox="0 0 24 24" fill="none"><path d="M9 7 4 12l5 5M15 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>About Atlas Softwares</p>
+      <h1>Building websites that help <span class="accent-word">businesses grow.</span></h1>
+      <p class="about-hero-sub">We specialize in creating modern, fast, and responsive websites that help businesses build a strong online presence. Our goal is simple — to deliver websites that not only look professional but also generate trust, attract customers, and support business growth.</p>
+    </div>
+    <div class="about-stats">
+      <div class="about-stat">
+        <div class="about-stat-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2 3 6v6c0 5 4 8.5 9 10 5-1.5 9-5 9-10V6l-9-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+        <span class="about-stat-glyph" aria-hidden="true">3+</span>
+        <span class="about-stat-num">3+ yrs</span><span class="about-stat-label">Building for all businesses</span>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+        <span class="about-stat-glyph" aria-hidden="true">5d</span>
+        <span class="about-stat-num">3–5 days</span><span class="about-stat-label">Fastest site delivery</span>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="7" y="2.5" width="10" height="19" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M11 18.5h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <span class="about-stat-glyph" aria-hidden="true">%</span>
+        <span class="about-stat-num">100%</span><span class="about-stat-label">Mobile-friendly, every build</span>
+      </div>
+    </div>
+    <div class="about-hero-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 30 C 180 65, 360 0, 540 28 C 720 56, 900 10, 1080 32 C 1260 54, 1350 18, 1440 30 L1440 70 L0 70 Z" fill="#FAF7F2"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===== WHO WE ARE ===== -->
+  <section class="about-intro">
+    <div class="about-intro-inner">
+      <div class="about-intro-label">
+        <p class="eyebrow">Who we are</p>
+        <div class="about-intro-label-rule"></div>
+        <svg class="about-intro-icon" viewBox="0 0 220 220" fill="none" aria-hidden="true">
+          <text x="0" y="160" font-family="monospace" font-size="180" font-weight="700" fill="currentColor" fill-opacity="0.5">&lt;/&gt;</text>
+        </svg>
+      </div>
+      <div>
+        <p>Whether you're a <strong>startup, freelancer, local business, or growing company</strong>, we provide website solutions tailored to your needs. Every project is built with clean design, mobile responsiveness, fast performance, and user-friendly functionality.</p>
+        <p>At Atlas Softwares, we believe that every business deserves a professional online presence. We're committed to building websites that create <strong>real value</strong> — not just beautiful designs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT WE DO ===== -->
+  <section class="about-services">
+    <div class="about-services-texture" aria-hidden="true"></div>
+    <div class="section-head">
+      <p class="eyebrow">What we do</p>
+      <h2>Services built around how businesses actually grow.</h2>
+    </div>
+    <div class="about-service-list">
+      <div class="about-service-row">
+        <span class="about-num">01</span>
+        <div><h3>Business Websites</h3><p>Professional sites that establish credibility and trust.</p></div>
+      </div>
+      <div class="about-service-row">
+        <span class="about-num">02</span>
+        <div><h3>Landing Pages</h3><p>Focused, conversion-ready pages for campaigns and offers.</p></div>
+      </div>
+      <div class="about-service-row">
+        <span class="about-num">03</span>
+        <div><h3>Portfolio Websites</h3><p>Clean showcases for freelancers and creative work.</p></div>
+      </div>
+      <div class="about-service-row">
+        <span class="about-num">04</span>
+        <div><h3>E-commerce Websites</h3><p>Online stores built to sell, not just display products.</p></div>
+      </div>
+      <div class="about-service-row featured">
+        <span class="about-featured-tag">Popular upgrade</span>
+        <span class="about-num">05</span>
+        <div><h3>Website Redesign</h3><p>Modernizing existing sites for speed, design, and usability.</p></div>
+      </div>
+      <div class="about-service-row">
+        <span class="about-num">06</span>
+        <div><h3>Website Maintenance &amp; Support</h3><p>Ongoing care so your site keeps performing after launch.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY CHOOSE US ===== -->
+  <section class="about-why">
+    <div class="about-why-dots" aria-hidden="true"></div>
+    <div class="section-head">
+      <p class="eyebrow">Why choose us</p>
+      <h2>Why Choose Atlas Softwares?</h2>
+    </div>
+    <div class="about-why-grid">
+      <div class="about-why-card">
+        <div class="about-why-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19.5V6a2 2 0 0 1 2-2h9l5 5v10.5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M15 4v4a1 1 0 0 0 1 1h4" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 13h8M8 16.5h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <h3>Modern &amp; Professional Design</h3><p>Clean, considered visuals that build a strong first impression.</p>
+      </div>
+      <div class="about-why-card">
+        <div class="about-why-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="7" y="2.5" width="10" height="19" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M11 18.5h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <h3>Mobile-Friendly Websites</h3><p>Every site works beautifully on any screen, out of the box.</p>
+      </div>
+      <div class="about-why-card">
+        <div class="about-why-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+        <h3>Fast Loading Performance</h3><p>Speed is built in from the start, not bolted on later.</p>
+      </div>
+      <div class="about-why-card">
+        <div class="about-why-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M16 16l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <h3>SEO-Friendly Development</h3><p>Structured so search engines — and customers — can find you.</p>
+      </div>
+      <div class="about-why-card">
+        <div class="about-why-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2 3 6v6c0 5 4 8.5 9 10 5-1.5 9-5 9-10V6l-9-4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Affordable Pricing</h3><p>Quality web development that respects your budget.</p>
+      </div>
+      <div class="about-why-card">
+        <div class="about-why-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19v-1a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M16 19v-1a4 4 0 0 0-2.3-3.6M14 4.3A3 3 0 0 1 14 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <h3>Dedicated Customer Support</h3><p>Real support from the people who built your site.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MISSION / VISION ===== -->
+  <section class="about-mv">
+    <div class="about-mv-dots" aria-hidden="true"></div>
+    <div class="about-mv-grid">
+      <div class="about-mv-divider-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="6" cy="6" r="2.4" stroke="currentColor" stroke-width="1.8"/><circle cx="18" cy="6" r="2.4" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="18" r="2.4" stroke="currentColor" stroke-width="1.8"/><path d="M8 7.2 10.5 16M16 7.2 13.5 16M8.5 6h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      <div class="about-mv-card">
+        <p class="eyebrow">Our mission</p>
+        <h3>Empower businesses to grow with confidence.</h3>
+        <p>Our mission is to empower businesses with high-quality digital solutions that help them establish credibility, reach more customers, and grow online with confidence.</p>
+      </div>
+      <div class="about-mv-card">
+        <p class="eyebrow">Our vision</p>
+        <h3>A trusted name in web development, worldwide.</h3>
+        <p>To become a trusted software and web development company known for delivering reliable, innovative, and business-focused digital solutions worldwide.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATEMENT ===== -->
+  <section class="about-statement">
+    <div class="about-statement-mark" aria-hidden="true">"</div>
+    <blockquote>Every business deserves a professional online presence. We're committed to building websites that create <span>real value</span> — not just beautiful designs.</blockquote>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="about-cta">
+    <div class="about-cta-card">
+      <span class="cta-dot" aria-hidden="true"></span>
+      <p class="eyebrow">Let's build</p>
+      <h2>Ready to grow your business online?</h2>
+      <a class="btn btn-primary" href="https://wa.me/916307953107" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5.1-1.3c1.4.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4.1 15 3.6 13.5 3.6 12 3.6 7.4 7.4 3.6 12 3.6s8.4 3.8 8.4 8.4-3.8 8.2-8.4 8.2zm4.6-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-1.3-.6-2.2-1.1-3.1-2.6-.2-.3 0-.5.1-.7.2-.2.4-.5.6-.7.2-.2.2-.4.1-.6-.1-.2-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4-.2 0-.4 0-.6 0-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.2 0 1.3 1 2.6 1.1 2.7.1.2 1.9 3 4.7 4 2.8 1 2.8.7 3.3.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>
+        Get in touch
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<?php include "footer.php" ?>
+
+<?php include 'footerinc.php' ?>
+</body>
+</html>

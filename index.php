@@ -1,0 +1,491 @@
+<?php include 'inc.php' ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas Softwares | Professional Web Design & Development Company</title>
+<meta name="description" content="Atlas Softwares provides responsive website design, web development, landing pages, and custom business websites to help businesses grow online.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Atlas Softwares">
+<meta property="og:description" content="Professional Web Design & Development Company">
+<meta property="og:url" content="https://atlassoftwares.com/">
+<meta property="og:image" content="https://atlassoftwares.com/assets/images/og-image.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Atlas Softwares">
+<meta name="twitter:description" content="Professional Website Development Company">
+<meta name="twitter:image" content="https://atlassoftwares.com/assets/images/og-image.png">
+
+<link rel="canonical" href="https://atlassoftwares.com/">
+
+<?php include 'headerinc.php' ?>
+
+</head>
+<body>
+
+  <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"Organization",
+      "name":"Atlas Softwares",
+      "url":"https://atlassoftwares.com",
+      "logo":"https://atlassoftwares.com/logo.png",
+      "sameAs":[]
+    }
+    </script>
+
+<?php include 'header.php' ?>
+
+<main id="top">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">Web design &amp; development &middot; based in India</p>
+        <h1>A website that <span class="hl">earns its keep</span>, not just exists.</h1>
+        <p class="hero-sub">I design and build fast, mobile-friendly websites for all businesses — built to load quickly, rank on Google, and turn visitors into enquiries. No bloated templates, no jargon, no surprise invoices.</p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://wa.me/916307953107" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5.1-1.3c1.4.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4.1 15 3.6 13.5 3.6 12 3.6 7.4 7.4 3.6 12 3.6s8.4 3.8 8.4 8.4-3.8 8.2-8.4 8.2zm4.6-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-1.3-.6-2.2-1.1-3.1-2.6-.2-.3 0-.5.1-.7.2-.2.4-.5.6-.7.2-.2.2-.4.1-.6-.1-.2-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4-.2 0-.4 0-.6 0-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.2 0 1.3 1 2.6 1.1 2.7.1.2 1.9 3 4.7 4 2.8 1 2.8.7 3.3.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>
+            Message on WhatsApp
+          </a>
+          <a class="btn btn-ghost" href="#services">See pricing</a>
+        </div>
+
+        <div class="hero-trustline">
+          <span><strong>3+ years</strong> building for all businesses</span>
+          <span class="dot">&middot;</span>
+          <span>Delivery in <strong>as little as 3 days</strong></span>
+          <span class="dot">&middot;</span>
+          <span>Plain-language <strong>fixed quotes</strong></span>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="browser-card">
+          <div class="browser-frame">
+            <div class="browser-chrome">
+              <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+              <span class="browser-url">yourbusiness.in</span>
+            </div>
+            <div class="browser-body">
+              <div class="bb-line bb-w70"></div>
+              <div class="bb-line bb-w40 bb-accent"></div>
+              <div class="bb-block"></div>
+              <div class="bb-row">
+                <div class="bb-chip"></div>
+                <div class="bb-chip"></div>
+                <div class="bb-chip"></div>
+              </div>
+            </div>
+          </div>
+          <div class="browser-badge">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2 2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            Mobile-friendly
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CAPABILITIES & SERVICES ===== -->
+  <section class="capabilities" id="capabilities">
+    <div class="section-head">
+      <p class="eyebrow">Our Capabilities</p>
+      <h2>Engineered for impact. Designed for conversion.</h2>
+      <p class="section-sub">We don't use recycled templates. We build custom, high-performance digital assets tailored to your brand identity.</p>
+    </div>
+
+    <div class="capabilities-grid">
+      <!-- Item 1: Custom Design -->
+      <div class="cap-card">
+        <div class="cap-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 14.122a1.875 1.875 0 0 0 2.94 2.249l7.5-7.5a1.875 1.875 0 0 0-2.652-2.652l-6.65 6.649a1.875 1.875 0 0 0-.138.16l-.16.16Zm0 0L6.75 16.875M9.53 14.122l-1.047-1.047m-1.355 3.797-1.31-.328a.75.75 0 0 0-.793.97l.747 2.242a.75.75 0 0 0 1.077.424l1.932-.966a.75.75 0 0 0 .396-.715l-.051-1.631Zm11.173-7.19-2.096-2.096m1.11 5.922-2.096-2.096" /></svg>
+        </div>
+        <h3>Fully Custom Web Design</h3>
+        <p>Stand out from competitors with bespoke websites built from scratch around your brand identity—zero recycled templates.</p>
+        <ul class="cap-list">
+          <li>Unique brand-aligned layouts</li>
+          <li>UX strategy &amp; structure mapping</li>
+          <li>Clean & modular layout</li>
+        </ul>
+      </div>
+
+      <!-- Item 2: Modern UI -->
+      <div class="cap-card">
+        <div class="cap-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5V18M15 7.5V18M3 16.5v-9a1.5 1.5 0 0 1 1.5-1.5h15a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 16.5Z" /></svg>
+        </div>
+        <h3>Modern Framework Design</h3>
+        <p>User expectations evolve fast. We maintain clean and minimal UI patterns to keep your business digitally competitive.</p>
+        <ul class="cap-list">
+          <li>Clean, low-friction interfaces</li>
+          <li>Engaging micro-interactions</li>
+          <li>Strong visual hierarchy</li>
+        </ul>
+      </div>
+
+      <!-- Item 3: Responsive Layouts -->
+      <div class="cap-card">
+        <div class="cap-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg>
+        </div>
+        <h3>Responsive Architecture</h3>
+        <p>Over half of all web traffic is mobile. We optimize layout delivery for flawless performance across every screen size.</p>
+        <ul class="cap-list">
+          <li>Smartphones &amp; tablets</li>
+          <li>Laptops &amp; standard screens</li>
+          <li>Ultra-wide desktop displays</li>
+        </ul>
+      </div>
+
+      <!-- Item 4: UI/UX Engineering -->
+      <div class="cap-card">
+        <div class="cap-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" /></svg>
+        </div>
+        <h3>UX/UI Optimization</h3>
+        <p>Great code is rooted in usability. We map intuitive interfaces that guide users naturally toward your conversion goals.</p>
+        <ul class="cap-list">
+          <li>User journey mapping</li>
+          <li>Wireframing &amp; prototypes</li>
+          <li>Conversion rate optimization</li>
+        </ul>
+      </div>
+
+      <!-- Item 5: Redesign & Revamp -->
+      <div class="cap-card">
+        <div class="cap-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" /></svg>
+        </div>
+        <h3>Website Redesign</h3>
+        <p>Transform underperforming or legacy portals into modern corporate tools designed to strengthen market authority.</p>
+        <ul class="cap-list">
+          <li>Refresh outdated visuals</li>
+          <li>Modernize underlying layouts</li>
+          <li>Enhance conversion pipelines</li>
+        </ul>
+      </div>
+
+      <!-- Item 6: 24/7 Support -->
+      <div class="cap-card">
+        <div class="cap-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 21l8.954-8.955M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" /></svg>
+        </div>
+        <h3>Continuous 24x7 Support</h3>
+        <p>We are available around the clock. Get dedicated expert deployment updates, patches, and maintenance execution whenever required.</p>
+        <ul class="cap-list">
+          <li>Technical issue resolution</li>
+          <li>Swift production Quick fixes</li>
+          <li>Routine server alignment</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES — COMPACT 3-COLUMN DASHBOARD ===== -->
+<section class="services" id="services">
+  <div class="section-head">
+    <p class="eyebrow">Services &amp; pricing</p>
+    <h2>Three ways to get online. No hidden line items.</h2>
+    <p class="section-sub">Pick what your business actually needs today — every package is itemised up front, the way it should be.</p>
+  </div>
+
+  <div class="pricing-dashboard-wrapper">
+    <!-- Core Packages Grid -->
+    <div class="pricing-grid">
+      
+      <!-- ITEM 1 -->
+      <article class="pcard">
+        <div class="pcard-header">
+          <div class="pcard-meta-top">
+            <span class="pcard-id">RATE CARD // 01</span>
+          </div>
+          <h3>Static Website</h3>
+          <p class="ritem-for">Best for all businesses, portfolios &amp; landing pages</p>
+          <div class="pcard-price-wrap">
+            <span class="pcard-price">₹8,000–15,000</span>
+          </div>
+          <div class="pcard-delivery-wrap">
+            <span class="ritem-delivery">Delivery <strong>3–5 days</strong></span>
+          </div>
+        </div>
+        <div class="pcard-body">
+          <ul class="ritem-features">
+            <li>Responsive, mobile-friendly design</li>
+            <li>Contact form wired to your email</li>
+            <li>SEO-friendly structure</li>
+            <li>Fast loading speed</li>
+            <li>Up to 5 pages</li>
+            <li>Social media integration</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- ITEM 2 -->
+      <article class="pcard">
+        <div class="pcard-header">
+          <div class="pcard-meta-top">
+            <span class="pcard-id">RATE CARD // 02</span>
+          </div>
+          <h3>Dynamic Website</h3>
+          <p class="ritem-for">Best for businesses that need to manage their own content</p>
+          <div class="pcard-price-wrap">
+            <span class="pcard-price">₹20,000–50,000</span>
+          </div>
+          <div class="pcard-delivery-wrap">
+            <span class="ritem-delivery">Delivery <strong>7–15 days</strong></span>
+          </div>
+        </div>
+        <div class="pcard-body">
+          <ul class="ritem-features">
+            <li>Admin dashboard, no developer needed to update it</li>
+            <li>Dynamic content management</li>
+            <li>Database integration</li>
+            <li>User authentication</li>
+            <li>Inquiry management system</li>
+            <li>Custom features as required</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- ITEM 3 — Featured -->
+      <article class="pcard pcard-featured">
+        <span class="ritem-stamp">Most future-proof</span>
+        <div class="pcard-header">
+          <div class="pcard-meta-top">
+            <span class="pcard-id highlight-id">RECOMMENDED // 03</span>
+          </div>
+          <h3>React Website</h3>
+          <p class="ritem-for">Best for startups, Tailwind css &amp; modern web apps</p>
+          <div class="pcard-price-wrap">
+            <span class="pcard-price feature-price">₹25,000–75,000+</span>
+          </div>
+          <div class="pcard-delivery-wrap">
+            <span class="ritem-delivery">Delivery <strong>10–20 days</strong></span>
+          </div>
+        </div>
+        <div class="pcard-body">
+          <ul class="ritem-features">
+            <li>React.js development</li>
+            <li>Modern UI/UX design</li>
+            <li>API integration</li>
+            <li>High performance, scalable architecture</li>
+            <li>SEO optimization</li>
+            <li>Built to expand as you grow</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Notice Footer & Add-ons Split Grid Layout -->
+    <div class="pricing-footer-layout">
+      <div class="receipt-total">
+        <span>Domain &amp; hosting setup, SEO and maintenance available separately — see below.</span>
+      </div>
+      
+      <div class="addons">
+        <h3>Add-ons</h3>
+        <dl class="addons-list">
+          <div class="addon-row"><dt>Domain setup</dt><dd>₹1,000</dd></div>
+          <div class="addon-row"><dt>Hosting setup</dt><dd>₹2,000</dd></div>
+          <div class="addon-row"><dt>Website maintenance</dt><dd>₹3,000<span class="addon-unit">/month</span></dd></div>
+          <div class="addon-row"><dt>SEO optimization</dt><dd>from ₹5,000</dd></div>
+          <div class="addon-row"><dt>Website redesign</dt><dd>from ₹10,000</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- ===== RECENT PROJECTS ===== -->
+<section class="projects" id="projects" style="display: none;">
+  <div class="section-head">
+    <p class="eyebrow">Selected Work</p>
+    <h2>Recent Projects</h2>
+    <p class="section-sub">A showcase of high-performance websites and digital solutions tailored for real business growth.</p>
+  </div>
+
+  <div class="projects-grid">
+    <!-- Project 1 -->
+    <div class="project-card">
+      <div class="pcard-image">
+        <!-- Replace with your actual project screenshot path -->
+        <img src="assets/images/project-1.jpg" alt="E-Commerce Architecture Layout">
+        <div class="pcard-overlay">
+          <span class="pcard-link-text">Explore Case Study</span>
+        </div>
+      </div>
+      <div class="pcard-meta">
+        <span class="pcard-tag">Static PHP &amp; MySQL</span>
+        <h3>E-Commerce Architecture</h3>
+        <p>A lightning-fast, highly optimized static-driven platform built for seamless product navigation and database performance.</p>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card">
+      <div class="pcard-image">
+        <!-- Replace with your actual project screenshot path -->
+        <img src="assets/images/project-2.jpg" alt="Corporate Landing Page Layout">
+        <div class="pcard-overlay">
+          <span class="pcard-link-text">Explore Case Study</span>
+        </div>
+      </div>
+      <div class="pcard-meta">
+        <span class="pcard-tag">Web Design / Tailwind</span>
+        <h3>Corporate Identity Page</h3>
+        <p>A conversion-focused layout featuring a custom grid layout system, minimal design aesthetic, and high-performance assets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- ===== PROCESS ===== -->
+  <section class="process" id="process">
+    <div class="section-head">
+      <p class="eyebrow">How it works</p>
+      <h2>From a phone call to a live site.</h2>
+    </div>
+    <div class="process-grid">
+      <div class="pstep">
+        <span class="pstep-mark">Call or message</span>
+        <p>Tell me about your business and what you need. I'll recommend the right package, no up sell.</p>
+      </div>
+      <div class="pstep">
+        <span class="pstep-mark">Fixed quote</span>
+        <p>You get a clear price and delivery date in writing before any work starts.</p>
+      </div>
+      <div class="pstep">
+        <span class="pstep-mark">Build &amp; review</span>
+        <p>I build, you review drafts along the way — nothing goes live without your sign-off.</p>
+      </div>
+      <div class="pstep">
+        <span class="pstep-mark">Launch &amp; support</span>
+        <p>Your site goes live with domain and hosting handled, plus support after launch.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY ===== -->
+  <section class="why" id="why">
+    <div class="why-inner">
+      <div class="section-head why-head">
+        <p class="eyebrow">Why work with me</p>
+        <h2>Built for business owners, not for portfolios.</h2>
+      </div>
+      <ul class="why-list">
+        <li><strong>3+ years of experience</strong> building sites for real businesses, not just demos.</li>
+        <li><strong>Modern, responsive design</strong> that looks right on any phone or screen.</li>
+        <li><strong>Fast delivery</strong> — most static sites are live within a week.</li>
+        <li><strong>Direct technical support</strong> from the person who built it, not a ticket queue.</li>
+        <li><strong>Business-first decisions</strong> — every feature has to earn its place on the page.</li>
+        <li><strong>Honest, affordable pricing</strong> with no hidden costs after the quote.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== FAQ SECTION ===== -->
+<section class="faq" id="faq">
+  <div class="section-head">
+    <p class="eyebrow">Common Questions</p>
+    <h2>Frequently Asked Questions</h2>
+    <p class="section-sub">Everything you need to know about our workflow, project delivery timelines, and payment structures.</p>
+  </div>
+
+  <div class="faq-container">
+    
+    <!-- Question 1: Pricing/Quotes -->
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>Are the prices truly fixed, or will they change?</h3>
+        <span class="faq-icon"></span>
+      </div>
+      <div class="faq-answer">
+        <p>Every quote given is 100% transparent and contractually fixed before any work begins. There are zero hidden fees or unexpected line-item invoices. Any additional custom requirements out of the original scope can be handled separately via add-ons at your preference.</p>
+      </div>
+    </div>
+
+    <!-- Question 2: Process/Delivery -->
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>How fast will my website be live?</h3>
+        <span class="faq-icon"></span>
+      </div>
+      <div class="faq-answer">
+        <p>Delivery parameters depend entirely on your project tier. A clean structural Static Website typically goes live within 3–5 days, a Dynamic CMS site takes 7–15 days, and custom dynamic React applications require 10–20 days depending on the structural complexity.</p>
+      </div>
+    </div>
+
+    <!-- Question 3: Setup Logistics -->
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>Are domain names and hosting architectures included?</h3>
+        <span class="faq-icon"></span>
+      </div>
+      <div class="faq-answer">
+        <p>Domain registration and technical hosting setups are listed separately as clear add-ons. This allows you full independent ownership over your accounts while we handle the configuration pipelines, linking, and deployment mechanics end-to-end.</p>
+      </div>
+    </div>
+
+    <!-- Question 4: Process/Revisions -->
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>What is the development and review process?</h3>
+        <span class="faq-icon"></span>
+      </div>
+      <div class="faq-answer">
+        <p>Our process flows smoothly: from initial discussion to a written fixed quote, followed by structured asset design phases. You will review interactive drafts along the pipeline, and absolutely nothing goes live on production without your explicit sign-off.</p>
+      </div>
+    </div>
+
+    <!-- Question 5: Tech Frameworks -->
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>Can a website be updated easily after deployment?</h3>
+        <span class="faq-icon"></span>
+      </div>
+      <div class="faq-answer">
+        <p>Yes. If you choose our Dynamic configuration tier, a fully secure custom admin dashboard is deployed so you can manage layout logs, update text, and manipulate database collections seamlessly without writing a single line of code.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <p class="eyebrow">Get in touch</p>
+      <h2>Tell me about your business — I'll tell you what it needs.</h2>
+      <p class="contact-sub">Most enquiries get a reply within the same day.</p>
+
+      <div class="contact-grid">
+        <a class="contact-card" href="tel:+916307953107">
+          <span class="cc-label">Call or text</span>
+          <span class="cc-value">6307953107</span>
+        </a>
+        <a class="contact-card" href="https://wa.me/916307953107" target="_blank" rel="noopener">
+          <span class="cc-label">WhatsApp</span>
+          <span class="cc-value">Message now</span>
+        </a>
+        <a class="contact-card" href="mailto:softwaresatlas@gmail.com">
+          <span class="cc-label">Email</span>
+          <span class="cc-value cc-small">softwaresatlas@gmail.com</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<?php include "footer.php" ?>
+<?php include 'footerinc.php' ?>
+
+</body>
+</html>
