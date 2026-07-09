@@ -1,5 +1,5 @@
 <?php
 
-$fullurl = "http://localhost/atlassoftwares/"
+$fullurl = "https://atlassoftwares.com/"
 
 ?>
