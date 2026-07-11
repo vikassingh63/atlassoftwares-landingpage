@@ -11,22 +11,18 @@ let cachedClient = null;
 let cachedDb = null;
 
 async function connectToDatabase() {
-  if (cachedClient && cachedDb) {
-    return { client: cachedClient, db: cachedDb };
+    if (cachedClient && cachedDb) {
+      return { client: cachedClient, db: cachedDb };
+    }
+  
+    // Sir, yahan se options hatakar bas seedhe uri paas karna hai
+    const client = await MongoClient.connect(uri);
+    const db = client.db('atlas_softwares_db');
+  
+    cachedClient = client;
+    cachedDb = db;
+    return { client, db };
   }
-
-  const client = await MongoClient.connect(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
-
-  // Agar aapki string mein database name default hai, toh ye automatically 'atlas_softwares_db' use karega
-  const db = client.db('atlas_softwares_db');
-
-  cachedClient = client;
-  cachedDb = db;
-  return { client, db };
-}
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
