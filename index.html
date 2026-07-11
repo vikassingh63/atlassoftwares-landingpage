@@ -548,38 +548,44 @@
         </div>
       </div>
 
-      <!-- Form column -->
       <div class="contact-page-form-wrap">
         <p class="eyebrow">Send us a message</p>
+        <h2 class="contact-form-heading">Tell us about your project</h2>
+        <p class="contact-form-sub">Fill out the form with your details and project requirements. We'll get back to you as soon as possible.</p>
 
-        <form class="contact-form" action="thank-you.html" method="get">
+        <!-- Status Messages -->
+        <div id="form-success" class="status-message status-success">Thank you, Sir! Your project requirement has been sent successfully.</div>
+        <div id="form-error" class="status-message status-error">Something went wrong. Please try again.</div>
+
+        <!-- FORM WITHOUT ACTION (HANDLED BY JS) -->
+        <form class="contact-form" id="vercel-contact-form">
           <div class="cf-row">
             <label class="cf-field">
               <span class="cf-label">Full name</span>
-              <input type="text" name="name" placeholder="Your name" required>
+              <input type="text" id="name" placeholder="Your name" required>
             </label>
             <label class="cf-field">
               <span class="cf-label">Email address</span>
-              <input type="email" name="email" placeholder="you@example.com" required>
+              <input type="email" id="email" placeholder="you@example.com" required>
             </label>
           </div>
           <div class="cf-row">
             <label class="cf-field">
               <span class="cf-label">Phone number</span>
-              <input type="tel" name="phone" placeholder="+91 XXXXXXXXXX">
+              <input type="tel" id="phone" placeholder="+91 XXXXXXXXXX">
             </label>
             <label class="cf-field">
               <span class="cf-label">Company name</span>
-              <input type="text" name="company" placeholder="Optional">
+              <input type="text" id="company" placeholder="Optional">
             </label>
           </div>
           <label class="cf-field cf-field-full">
             <span class="cf-label">Project requirements</span>
-            <textarea name="message" rows="5" placeholder="Tell us a little about what you're looking to build..." required></textarea>
+            <textarea id="message" rows="5" placeholder="Tell us a little about what you're looking to build..." required></textarea>
           </label>
-          <button type="submit" class="btn btn-primary cf-submit">
+          <button type="submit" class="btn btn-primary cf-submit" id="submit-btn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 2 11 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 2 15 22l-4-9-9-4 20-7z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Send message
+            <span id="btn-text">Send message</span>
           </button>
         </form>
       </div>
@@ -600,6 +606,63 @@
   </div>
 </footer>
 
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // JavaScript Vercel Function Integration
+  const form = document.getElementById('vercel-contact-form');
+  const successDiv = document.getElementById('form-success');
+  const errorDiv = document.getElementById('form-error');
+  const submitBtn = document.getElementById('submit-btn');
+  const btnText = document.getElementById('btn-text');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // UI state loading setup
+    submitBtn.disabled = true;
+    btnText.textContent = "Processing...";
+    successDiv.style.display = 'none';
+    errorDiv.style.display = 'none';
+
+    // Payload extraction
+    const payload = {
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+      company: document.getElementById('company').value,
+      message: document.getElementById('message').value
+    };
+
+    try {
+      // Vercel relative path function target
+      const response = await fetch('/api/submit-lead', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        successDiv.style.display = 'block';
+        form.reset();
+      } else {
+        errorDiv.textContent = data.error || "Server error occurred.";
+        errorDiv.style.display = 'block';
+      }
+    } catch (err) {
+      console.error(err);
+      errorDiv.textContent = "Failed to connect to the server.";
+      errorDiv.style.display = 'block';
+    } finally {
+      submitBtn.disabled = false;
+      btnText.textContent = "Send message";
+    }
+  });
+</script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 <script src="assets/js/main.js"></script>
 </body>
