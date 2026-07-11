@@ -1506,6 +1506,10 @@ a.contact-info-row:hover { border-color: var(--signal); transform: translateY(-2
   line-height: 1.4;
   position: relative;
 }
+#contact 
+{
+  padding-top: 0;
+}
 
 /* Tablet & Mobile Layout Shifts */
 @media (max-width: 880px) {
