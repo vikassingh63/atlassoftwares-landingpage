@@ -22,7 +22,11 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { name, email, phone, company, requirements } = req.body;
+    // Sir, frontend se 'message' aa rha hai, toh humne use yahan destructure kar liya hai
+    const { name, email, phone, company, message } = req.body;
+
+    // Ek safe fallback variable bana liya hai
+    const projectRequirements = message || "No requirements provided";
 
     // 1. Database mein save karein
     const { db } = await connectToDatabase();
@@ -31,11 +35,11 @@ export default async function handler(req, res) {
       email,
       phone,
       company,
-      requirements,
+      requirements: projectRequirements, // Ab DB mein bilkul sahi text jayega
       createdAt: new Date()
     });
 
-    // 2. Email Transporter Setup karein
+    // 2. Email Transporter Setup
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -47,7 +51,7 @@ export default async function handler(req, res) {
     // 3. Email Content tayyar karein
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: 'softwaresatlas@gmail.com', // Aapki target email
+      to: 'softwaresatlas@gmail.com',
       subject: `🚨 New Lead Received from ${name}`,
       html: `
         <h3>New Project Lead Details:</h3>
@@ -56,7 +60,7 @@ export default async function handler(req, res) {
         <p><b>Phone:</b> ${phone}</p>
         <p><b>Company:</b> ${company || 'N/A'}</p>
         <p><b>Requirements:</b></p>
-        <p style="background: #f4f4f4; padding: 10px; border-left: 4px solid #0070f3;">${requirements}</p>
+        <p style="background: #f4f4f4; padding: 10px; border-left: 4px solid #0070f3;">${projectRequirements}</p>
       `,
     };
 
