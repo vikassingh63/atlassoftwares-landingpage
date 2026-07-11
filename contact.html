@@ -31,28 +31,6 @@
   gtag('js', new Date());
   gtag('config', 'G-R74X5FTXTR');
 </script>
-
-<style>
-  /* Status Message Styling */
-  .status-message {
-    padding: 12px 16px;
-    border-radius: 6px;
-    margin-bottom: 20px;
-    font-size: 14px;
-    font-family: 'Inter', sans-serif;
-    display: none;
-  }
-  .status-success {
-    background-color: #e6f4ea;
-    color: #137333;
-    border: 1px solid #dadce0;
-  }
-  .status-error {
-    background-color: #fce8e6;
-    color: #c5221f;
-    border: 1px solid #dadce0;
-  }
-</style>
 </head>
 <body>
 
@@ -149,10 +127,6 @@
         <h2 class="contact-form-heading">Tell us about your project</h2>
         <p class="contact-form-sub">Fill out the form with your details and project requirements. We'll get back to you as soon as possible.</p>
 
-        <!-- Status Messages -->
-        <div id="form-success" class="status-message status-success">Thank you, Sir! Your project requirement has been saved successfully.</div>
-        <div id="form-error" class="status-message status-error">Something went wrong. Please try again.</div>
-
         <!-- FORM WITHOUT ACTION (HANDLED BY JS) -->
         <form class="contact-form" id="vercel-contact-form">
           <div class="cf-row">
@@ -207,61 +181,54 @@
 
   // JavaScript Vercel Function Integration
   const form = document.getElementById('vercel-contact-form');
-  const successDiv = document.getElementById('form-success');
-  const errorDiv = document.getElementById('form-error');
   const submitBtn = document.getElementById('submit-btn');
   const btnText = document.getElementById('btn-text');
 
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    // UI state loading setup
-    submitBtn.disabled = true;
-    btnText.textContent = "Processing...";
-    successDiv.style.display = 'none';
-    errorDiv.style.display = 'none';
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      // Submit button load state setup (prevents double clicking)
+      if (submitBtn) submitBtn.disabled = true;
+      if (btnText) btnText.textContent = "Processing...";
 
-    // Payload extraction - includes source field and uses 'message'
-    const payload = {
-      name: document.getElementById('name').value,
-      email: document.getElementById('email').value,
-      phone: document.getElementById('phone').value,
-      company: document.getElementById('company').value,
-      message: document.getElementById('message').value,
-      pageSource: 'Contact Page' // Dynamically tracks where the lead is from
-    };
+      // Payload structure matching backend exactly
+      const payload = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        company: document.getElementById('company').value,
+        message: document.getElementById('message').value,
+        pageSource: 'Contact Page' // Tracking identifier
+      };
 
-    try {
-      // Vercel relative path function target
-      const response = await fetch('/api/submit-lead', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      });
+      try {
+        const response = await fetch('/api/submit-lead', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
 
-      const data = await response.json();
-
-      if (response.ok) {
-        successDiv.style.display = 'block';
-        form.reset();
-        
-        // Sir, yahan se direct user thank-you page par redirect ho jayega
-        window.location.href = 'thank-you.html'; 
-      } else {
-        errorDiv.textContent = data.message || "Server error occurred.";
-        errorDiv.style.display = 'block';
+        if (response.ok) {
+          form.reset();
+          // Instantly send to the custom thank you page
+          window.location.href = 'thank-you.html'; 
+        } else {
+          const data = await response.json();
+          alert("Error: " + (data.message || "Server error occurred."));
+          if (submitBtn) submitBtn.disabled = false;
+          if (btnText) btnText.textContent = "Send message";
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Failed to connect to the server. Please check your network.");
+        if (submitBtn) submitBtn.disabled = false;
+        if (btnText) btnText.textContent = "Send message";
       }
-    } catch (err) {
-      console.error(err);
-      errorDiv.textContent = "Failed to connect to the server.";
-      errorDiv.style.display = 'block';
-    } finally {
-      submitBtn.disabled = false;
-      btnText.textContent = "Send message";
-    }
-  });
+    });
+  }
 </script>
 </body>
 </html>
