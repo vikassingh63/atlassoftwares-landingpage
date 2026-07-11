@@ -555,8 +555,8 @@
         <p class="contact-form-sub">Fill out the form with your details and project requirements. We'll get back to you as soon as possible.</p>
 
         <!-- Status Messages -->
-        <!-- <div id="form-success" class="status-message status-success">Thank you, Sir! Your project requirement has been saved successfully.</div>
-        <div id="form-error" class="status-message status-error">Something went wrong. Please try again.</div> -->
+        <div id="form-success" class="status-message status-success">Thank you, Sir! Your project requirement has been saved successfully.</div>
+        <div id="form-error" class="status-message status-error">Something went wrong. Please try again.</div>
 
         <!-- FORM WITHOUT ACTION (HANDLED BY JS) -->
         <form class="contact-form" id="vercel-contact-form">
@@ -610,23 +610,24 @@
 <script>
   // Home Page Form Integration
   const homeForm = document.getElementById('home-contact-form');
+  const homeSuccessDiv = document.getElementById('home-form-success');
+  const homeErrorDiv = document.getElementById('home-form-error');
 
   if (homeForm) {
     homeForm.addEventListener('submit', async function(e) {
       e.preventDefault();
       
-      // Sir, submit button ko disable kar dete hain taaki double-click na ho
-      const submitBtn = homeForm.querySelector('button[type="submit"]');
-      if (submitBtn) submitBtn.disabled = true;
+      if (homeSuccessDiv) homeSuccessDiv.style.display = 'none';
+      if (homeErrorDiv) homeErrorDiv.style.display = 'none';
 
-      // Direct fields se data extract kar rahe hain bina kisi hidden dependence ke
+      // Sir, dhyan dijiye yahan 'pageSource' exact match hona chahiye backend variable se
       const payload = {
         name: document.getElementById('home-name').value,
         email: document.getElementById('home-email').value,
         phone: document.getElementById('home-phone').value,
         company: document.getElementById('home-company').value,
         message: document.getElementById('home-message').value,
-        pageSource: 'Home Page' // Ye field ab bina kisi rukawat ke backend par jayega
+        pageSource: 'Home Page' // Ye backend ko lead track karne me madad karega
       };
 
       try {
@@ -638,19 +639,24 @@
           body: JSON.stringify(payload)
         });
 
+        const data = await response.json();
+
         if (response.ok) {
           homeForm.reset();
-          // Form submit hote hi instantly custom thank-you page par redirect
+          // Direct thank you page par redirect
           window.location.href = 'thank-you.html';
         } else {
-          const data = await response.json();
-          alert("Error: " + (data.message || "Server error occurred."));
-          if (submitBtn) submitBtn.disabled = false;
+          if (homeErrorDiv) {
+            homeErrorDiv.textContent = data.message || "Server error occurred.";
+            homeErrorDiv.style.display = 'block';
+          }
         }
       } catch (err) {
         console.error(err);
-        alert("Failed to connect to the server. Please check your internet connection.");
-        if (submitBtn) submitBtn.disabled = false;
+        if (homeErrorDiv) {
+          homeErrorDiv.textContent = "Failed to connect to the server.";
+          homeErrorDiv.style.display = 'block';
+        }
       }
     });
   }
