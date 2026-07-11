@@ -608,66 +608,60 @@
 </footer>
 
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+  // Home Page Form Integration
+  const homeForm = document.getElementById('home-contact-form');
+  const homeSuccessDiv = document.getElementById('home-form-success');
+  const homeErrorDiv = document.getElementById('home-form-error');
 
-  // JavaScript Vercel Function Integration
-  const form = document.getElementById('vercel-contact-form');
-  const successDiv = document.getElementById('form-success');
-  const errorDiv = document.getElementById('form-error');
-  const submitBtn = document.getElementById('submit-btn');
-  const btnText = document.getElementById('btn-text');
+  if (homeForm) {
+    homeForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      if (homeSuccessDiv) homeSuccessDiv.style.display = 'none';
+      if (homeErrorDiv) homeErrorDiv.style.display = 'none';
 
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    // UI state loading setup
-    submitBtn.disabled = true;
-    btnText.textContent = "Processing...";
-    successDiv.style.display = 'none';
-    errorDiv.style.display = 'none';
+      // Sir, dhyan dijiye yahan 'pageSource' exact match hona chahiye backend variable se
+      const payload = {
+        name: document.getElementById('home-name').value,
+        email: document.getElementById('home-email').value,
+        phone: document.getElementById('home-phone').value,
+        company: document.getElementById('home-company').value,
+        message: document.getElementById('home-message').value,
+        pageSource: 'Home Page' // Ye backend ko lead track karne me madad karega
+      };
 
-    // Payload extraction - includes source field and uses 'message'
-    const payload = {
-      name: document.getElementById('name').value,
-      email: document.getElementById('email').value,
-      phone: document.getElementById('phone').value,
-      company: document.getElementById('company').value,
-      message: document.getElementById('message').value,
-      pageSource: 'Contact Page' // Dynamically tracks where the lead is from
-    };
+      try {
+        const response = await fetch('/api/submit-lead', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
 
-    try {
-      // Vercel relative path function target
-      const response = await fetch('/api/submit-lead', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      });
+        const data = await response.json();
 
-      const data = await response.json();
-
-      if (response.ok) {
-        successDiv.style.display = 'block';
-        form.reset();
-        
-        // Sir, yahan se direct user thank-you page par redirect ho jayega
-        window.location.href = 'thank-you.html'; 
-      } else {
-        errorDiv.textContent = data.message || "Server error occurred.";
-        errorDiv.style.display = 'block';
+        if (response.ok) {
+          homeForm.reset();
+          // Direct thank you page par redirect
+          window.location.href = 'thank-you.html';
+        } else {
+          if (homeErrorDiv) {
+            homeErrorDiv.textContent = data.message || "Server error occurred.";
+            homeErrorDiv.style.display = 'block';
+          }
+        }
+      } catch (err) {
+        console.error(err);
+        if (homeErrorDiv) {
+          homeErrorDiv.textContent = "Failed to connect to the server.";
+          homeErrorDiv.style.display = 'block';
+        }
       }
-    } catch (err) {
-      console.error(err);
-      errorDiv.textContent = "Failed to connect to the server.";
-      errorDiv.style.display = 'block';
-    } finally {
-      submitBtn.disabled = false;
-      btnText.textContent = "Send message";
-    }
-  });
+    });
+  }
 </script>
+
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 <script src="assets/js/main.js"></script>
 </body>
