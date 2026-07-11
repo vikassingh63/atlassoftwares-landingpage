@@ -548,13 +548,14 @@
         </div>
       </div>
 
+      <!-- Form column -->
       <div class="contact-page-form-wrap">
         <p class="eyebrow">Send us a message</p>
         <h2 class="contact-form-heading">Tell us about your project</h2>
         <p class="contact-form-sub">Fill out the form with your details and project requirements. We'll get back to you as soon as possible.</p>
 
         <!-- Status Messages -->
-        <div id="form-success" class="status-message status-success">Thank you, Sir! Your project requirement has been sent successfully.</div>
+        <div id="form-success" class="status-message status-success">Thank you, Sir! Your project requirement has been saved successfully.</div>
         <div id="form-error" class="status-message status-error">Something went wrong. Please try again.</div>
 
         <!-- FORM WITHOUT ACTION (HANDLED BY JS) -->
@@ -625,13 +626,14 @@
     successDiv.style.display = 'none';
     errorDiv.style.display = 'none';
 
-    // Payload extraction
+    // Payload extraction - includes source field and uses 'message'
     const payload = {
       name: document.getElementById('name').value,
       email: document.getElementById('email').value,
       phone: document.getElementById('phone').value,
       company: document.getElementById('company').value,
-      message: document.getElementById('message').value
+      message: document.getElementById('message').value,
+      pageSource: 'Contact Page' // Dynamically tracks where the lead is from
     };
 
     try {
@@ -649,8 +651,11 @@
       if (response.ok) {
         successDiv.style.display = 'block';
         form.reset();
+        
+        // Sir, yahan se direct user thank-you page par redirect ho jayega
+        window.location.href = 'thank-you.html'; 
       } else {
-        errorDiv.textContent = data.error || "Server error occurred.";
+        errorDiv.textContent = data.message || "Server error occurred.";
         errorDiv.style.display = 'block';
       }
     } catch (err) {
