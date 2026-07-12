@@ -1,83 +1,131 @@
-import { MongoClient } from 'mongodb';
-import nodemailer from 'nodemailer';
+const { MongoClient } = require('mongodb');
+const nodemailer = require('nodemailer');
 
-const uri = process.env.MONGODB_URI;
+// MongoDB URI aur Database Name configuration
+const uri = process.env.MONGODB_URI; // Vercel env se automatic pick karega
+const dbName = 'atlas_softwares_db'; 
+
 let cachedClient = null;
-let cachedDb = null;
 
+// Database Connection Helper (Serverless optimization ke liye)
 async function connectToDatabase() {
-  if (cachedClient && cachedDb) {
-    return { client: cachedClient, db: cachedDb };
+  if (cachedClient) {
+    return cachedClient;
   }
-  const client = await MongoClient.connect(uri);
-  const db = client.db('atlas_softwares_db');
+  if (!uri) {
+    throw new Error('Please define the MONGODB_URI environment variable inside .env');
+  }
+  const client = new MongoClient(uri);
+  await client.connect();
   cachedClient = client;
-  cachedDb = db;
-  return { client, db };
+  return client;
 }
 
 export default async function handler(req, res) {
+  // CORS Headers Setup
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  );
+
+  // Handle OPTIONS request (Preflight)
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
+  // Sirf POST request allow karenge data submission ke liye
   if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method not allowed' });
+    return res.status(405).json({ success: false, message: 'Method not allowed' });
+  }
+
+  const { name, email, phone, message, pageSource } = req.body;
+
+  // Validation: Basic checking
+  if (!name || !email || !phone) {
+    return res.status(400).json({ success: false, message: 'Required fields are missing' });
   }
 
   try {
-    // 1. req.body se saare fields nikal rahe hain (including message aur pageSource)
-    const { name, email, phone, company, message, pageSource } = req.body;
+    // ---- STEP 1: MONGODB ME DATA SAVE KARNA ----
+    const client = await connectToDatabase();
+    const db = client.db(dbName);
+    const collection = db.collection('leads');
 
-    // Fallback fallbacks safe logic ke liye
-    const projectRequirements = message || "No requirements provided";
-    const source = pageSource || "Unknown Page";
-
-    // 2. Database mein lead ko data entry karein
-    const { db } = await connectToDatabase();
-    await db.collection('leads').insertOne({
+    const leadData = {
       name,
       email,
       phone,
-      company,
-      requirements: projectRequirements,
-      pageSource: source, // Kis page se lead aayi track hoga
+      message: message || '',
+      pageSource: pageSource || 'Website Main Form',
       createdAt: new Date()
-    });
-
-    // 3. Email Transporter Configuration (Gmail App Password ke sath)
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
-
-    // 4. Email format tayyar karein
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: 'softwaresatlas@gmail.com', // Aapka official dynamic address
-      subject: `🚨 New Lead [${source}] from ${name}`, // Email subject me source dikhega
-      html: `
-        <div style="font-family: 'Inter', sans-serif; color: #333; line-height: 1.6;">
-          <h3 style="color: #111; border-bottom: 2px solid #eaeaea; padding-bottom: 8px;">New Project Lead Details</h3>
-          <p><b>Lead Source:</b> <span style="color: #0070f3; font-weight: bold; background: #e6f4ea; padding: 2px 6px; border-radius: 4px;">${source}</span></p>
-          <p><b>Name:</b> ${name}</p>
-          <p><b>Email:</b> <a href="mailto:${email}">${email}</a></p>
-          <p><b>Phone:</b> ${phone || 'N/A'}</p>
-          <p><b>Company:</b> ${company || 'N/A'}</p>
-          <p><b>Project Requirements:</b></p>
-          <div style="background: #f4f4f4; padding: 15px; border-left: 4px solid #0070f3; border-radius: 4px; font-style: italic;">
-            ${projectRequirements}
-          </div>
-        </div>
-      `,
     };
 
-    // 5. Instantly mail send karein
+    // Database me insert insert query run karein
+    await collection.insertOne(leadData);
+
+
+    // ---- STEP 2: NAMECHEAP PROFESSIONAL MAIL TRIGGER ----
+    // Namecheap Private Email SMTP configuration Setup
+    const transporter = nodemailer.createTransport({
+      host: process.env.EMAIL_HOST,      // mail.privateemail.com
+      port: parseInt(process.env.EMAIL_PORT) || 465, // 465
+      secure: true,                      // true for 465 (SSL)
+      auth: {
+        user: process.env.EMAIL_USER,    // sales@atlassoftwares.com
+        pass: process.env.EMAIL_PASS     // Aapka email password
+      }
+    });
+
+    // Custom HTML Email template design
+    const mailOptions = {
+      from: `"Atlas Softwares Leads" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_USER,        // Saari incoming leads isi par deliver hongi
+      replyTo: email,                   // Direct client ko click-to-reply karne ke liye
+      subject: `🔥 New Lead Received from ${pageSource || 'Website'}`,
+      html: `
+        <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 30px; background-color: #fafafa; max-width: 600px; margin: 0 auto; border: 1px solid #e0e0e0; border-radius: 12px;">
+          <div style="text-align: center; margin-bottom: 25px;">
+            <h2 style="color: #111; margin: 0; font-size: 24px; font-weight: 700; letter-spacing: -0.5px;">Atlas Softwares</h2>
+            <p style="color: #666; margin: 5px 0 0 0; font-size: 14px;">Inbound Lead Engine Notification</p>
+          </div>
+          
+          <div style="background: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border-left: 4px solid #111;">
+            <p style="margin: 0 0 10px 0; font-size: 14px; color: #555;"><strong style="color: #111;">Source Page:</strong> ${pageSource || 'Not Specified'}</p>
+            <p style="margin: 0 0 10px 0; font-size: 14px; color: #555;"><strong style="color: #111;">Client Name:</strong> ${name}</p>
+            <p style="margin: 0 0 10px 0; font-size: 14px; color: #555;"><strong style="color: #111;">Email Address:</strong> <a href="mailto:${email}" style="color: #0066cc; text-decoration: none;">${email}</a></p>
+            <p style="margin: 0 0 15px 0; font-size: 14px; color: #555;"><strong style="color: #111;">Phone Number:</strong> <a href="tel:${phone}" style="color: #0066cc; text-decoration: none;">${phone}</a></p>
+            
+            <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee;">
+              <strong style="display: block; margin-bottom: 8px; color: #111; font-size: 14px;">Message/Requirements:</strong>
+              <div style="background: #f9f9f9; padding: 15px; border-radius: 6px; color: #333; font-size: 14px; line-height: 1.5; white-space: pre-wrap;">${message || 'No message provided.'}</div>
+            </div>
+          </div>
+          
+          <div style="text-align: center; margin-top: 25px;">
+            <small style="color: #999; font-size: 11px;">This is an automated system alert. Data has been successfully synced with Atlas MongoDB cluster.</small>
+          </div>
+        </div>
+      `
+    };
+
+    // Async mail transmission trigger
     await transporter.sendMail(mailOptions);
 
-    return res.status(200).json({ message: 'Lead saved and email sent successfully!' });
+    // Dono kaam successful hone par final client response send karein
+    return res.status(200).json({ 
+      success: true, 
+      message: 'Lead processed successfully! DB updated and notification sent.' 
+    });
 
   } catch (error) {
-    console.error("Error in submit-lead API:", error);
-    return res.status(500).json({ message: error.message || 'Something went wrong on the server' });
+    console.error('Backend Processing Error:', error);
+    return res.status(500).json({ 
+      success: false, 
+      message: 'Internal Server Error', 
+      error: error.message 
+    });
   }
 }
