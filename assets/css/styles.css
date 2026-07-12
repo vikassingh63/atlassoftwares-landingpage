@@ -773,6 +773,10 @@ section { padding: 90px 24px; }
     visibility: visible;
     transform: translateY(0);
   }
+  .topright-message svg 
+  {
+    display: flex;
+  }
 }
 /* ============================================
    ATLAS SOFTWARES — About page styles
