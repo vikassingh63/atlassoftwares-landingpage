@@ -181,59 +181,46 @@
 </footer>
 
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+  const form = document.getElementById('vercel-contact-form'); // Apne form ki ID daalein
 
-  // JavaScript Vercel Function Integration
-  const form = document.getElementById('vercel-contact-form');
-  const submitBtn = document.getElementById('submit-btn');
-  const btnText = document.getElementById('btn-text');
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault(); // Default instant redirect ko rokne ke liye
 
-  if (form) {
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      
-      // Submit button load state setup (prevents double clicking)
-      if (submitBtn) submitBtn.disabled = true;
-      if (btnText) btnText.textContent = "Processing...";
+    // Form ka data nikalna
+    const formData = {
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+      message: document.getElementById('message').value,
+      pageSource: 'Contact Page' // Ya jo bhi page ho
+    };
 
-      // Payload structure matching backend exactly
-      const payload = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        company: document.getElementById('company').value,
-        message: document.getElementById('message').value,
-        pageSource: 'Contact Page' // Tracking identifier
-      };
+    try {
+      // Backend Vercel API ko hit karna
+      const response = await fetch('/api/submit-lead', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
 
-      try {
-        const response = await fetch('/api/submit-lead', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(payload)
-        });
+      const result = await response.json();
 
-        if (response.ok) {
-          form.reset();
-          // Instantly send to the custom thank you page
-          window.location.href = 'thank-you.html'; 
-        } else {
-          const data = await response.json();
-          alert("Error: " + (data.message || "Server error occurred."));
-          if (submitBtn) submitBtn.disabled = false;
-          if (btnText) btnText.textContent = "Send message";
-        }
-      } catch (err) {
-        console.error(err);
-        alert("Failed to connect to the server. Please check your network.");
-        if (submitBtn) submitBtn.disabled = false;
-        if (btnText) btnText.textContent = "Send message";
+      if (result.success) {
+        // 💡 JAB BACKEND SE MAIL AUR DB DONE HO JAYE, TABHI REDIRECT KAREIN
+        window.location.href = '/thank-you.html'; 
+      } else {
+        alert('Submission Error: ' + result.message);
       }
-    });
-  }
+
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Something went wrong. Please try again.');
+    }
+  });
 </script>
+
 <script src="assets/js/main.js"></script>
 </body>
 </html>

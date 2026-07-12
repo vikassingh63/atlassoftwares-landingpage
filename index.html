@@ -608,58 +608,45 @@
 </footer>
 
 <script>
-  // Home Page Form Logic
-  const homeForm = document.getElementById('home-contact-form');
+  const homeForm = document.getElementById('home-contact-form'); 
 
   if (homeForm) {
     homeForm.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      
-      // Double submission rokne ke liye button handle karein
-      const submitBtn = homeForm.querySelector('button[type="submit"]');
-      const btnText = submitBtn ? submitBtn.querySelector('span') : null;
-      
-      if (submitBtn) submitBtn.disabled = true;
-      if (btnText) btnText.textContent = "Processing...";
+      e.preventDefault(); // Instant automatic redirect ko rokne ke liye
 
-      // Exact matching IDs to prevent Null errors
-      const payload = {
+      // Form se saari input values uthana
+      const formData = {
         name: document.getElementById('home-name').value,
         email: document.getElementById('home-email').value,
         phone: document.getElementById('home-phone').value,
-        company: document.getElementById('home-company').value,
-        message: document.getElementById('home-message').value,
-        pageSource: 'Home Page' // Tracking identifier
+        message: document.getElementById('home-message')?.value || '', // Optional message
+        pageSource: 'Home Page' // 💡 Isse email notification me 'Home Page' likha aayega
       };
 
       try {
+        // Backend API function ko trigger karna
         const response = await fetch('/api/submit-lead', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
           },
-          body: JSON.stringify(payload)
+          body: JSON.stringify(formData)
         });
 
-        if (response.ok) {
-          homeForm.reset();
-          // Instantly open the thank you page
-          window.location.href = 'thank-you.html';
+        const result = await response.json();
+
+        if (result.success) {
+          // Jab database save aur mail trigger dono successful ho jaye, tabhi move karein
+          window.location.href = '/thank-you.html'; 
         } else {
-          const data = await response.json();
-          alert("Submission Error: " + (data.message || "Server error occurred."));
-          if (submitBtn) submitBtn.disabled = false;
-          if (btnText) btnText.textContent = "Send message";
+          alert('Submission Error: ' + result.message);
         }
-      } catch (err) {
-        console.error("Fetch Error:", err);
-        alert("Failed to connect to the server. Please check your deployment or network.");
-        if (submitBtn) submitBtn.disabled = false;
-        if (btnText) btnText.textContent = "Send message";
+
+      } catch (error) {
+        console.error('Error submitting home form:', error);
+        alert('Network error. Please try again.');
       }
     });
-  } else {
-    console.error("Error: 'home-contact-form' element not found in HTML structure.");
   }
 </script>
 
