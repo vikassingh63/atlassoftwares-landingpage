@@ -70,12 +70,16 @@ export default async function handler(req, res) {
     // ---- STEP 2: NAMECHEAP PROFESSIONAL MAIL TRIGGER ----
     // Namecheap Private Email SMTP configuration Setup
     const transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_HOST,      // mail.privateemail.com
-      port: parseInt(process.env.EMAIL_PORT) || 465, // 465
-      secure: true,                      // true for 465 (SSL)
+      host: process.env.EMAIL_HOST,        // mail.privateemail.com
+      port: parseInt(process.env.EMAIL_PORT) || 587, // 💡 Port ab 587 chalega
+      secure: false,                        // 💡 Port 587 ke liye isko false rakhna hai
+      requireTLS: true,                     // 💡 TLS connection force karne ke liye
       auth: {
-        user: process.env.EMAIL_USER,    // sales@atlassoftwares.com
-        pass: process.env.EMAIL_PASS     // Aapka email password
+        user: process.env.EMAIL_USER,      // sales@atlassoftwares.com
+        pass: process.env.EMAIL_PASS       
+      },
+      tls: {
+        rejectUnauthorized: false          // Server verification issues ko bypass karne ke liye
       }
     });
 
