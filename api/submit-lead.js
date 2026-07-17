@@ -63,31 +63,30 @@ export default async function handler(req, res) {
       createdAt: new Date()
     };
 
-    // Database me insert insert query run karein
+    // Database me insert query run karein
     await collection.insertOne(leadData);
 
 
     // ---- STEP 2: NAMECHEAP PROFESSIONAL MAIL TRIGGER ----
-    // Namecheap Private Email SMTP configuration Setup
     const transporter = nodemailer.createTransport({
       host: process.env.EMAIL_HOST,        // mail.privateemail.com
-      port: parseInt(process.env.EMAIL_PORT) || 587, // 💡 Port ab 587 chalega
-      secure: false,                        // 💡 Port 587 ke liye isko false rakhna hai
-      requireTLS: true,                     // 💡 TLS connection force karne ke liye
+      port: parseInt(process.env.EMAIL_PORT) || 587, 
+      secure: false,                        
+      requireTLS: true,                     
       auth: {
         user: process.env.EMAIL_USER,      // sales@atlassoftwares.com
         pass: process.env.EMAIL_PASS       
       },
       tls: {
-        rejectUnauthorized: false          // Server verification issues ko bypass karne ke liye
+        rejectUnauthorized: false          
       }
     });
 
     // Custom HTML Email template design
     const mailOptions = {
       from: `"Atlas Softwares Leads" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_USER,        // Saari incoming leads isi par deliver hongi
-      replyTo: email,                   // Direct client ko click-to-reply karne ke liye
+      to: process.env.EMAIL_USER,        
+      replyTo: email,                   
       subject: `🔥 New Lead Received from ${pageSource || 'Website'}`,
       html: `
         <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 30px; background-color: #fafafa; max-width: 600px; margin: 0 auto; border: 1px solid #e0e0e0; border-radius: 12px;">
@@ -118,10 +117,29 @@ export default async function handler(req, res) {
     // Async mail transmission trigger
     await transporter.sendMail(mailOptions);
 
-    // Dono kaam successful hone par final client response send karein
+
+    // ---- 🔥 STEP 3: MAKE.COM WEBHOOK TRIGGER FOR WHATSAPP ----
+    // Jo URL aapne copy kiya tha use hum secure rakhne ke liye Environment Variable me fetch karenge
+    if (process.env.MAKE_WEBHOOK_URL) {
+      await fetch(process.env.MAKE_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          message: message || 'No message provided.',
+          pageSource: pageSource || 'Website Main Form',
+          submittedAt: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+        })
+      });
+    }
+
+
+    // Saari cheezein successful hone par final response send karein
     return res.status(200).json({ 
       success: true, 
-      message: 'Lead processed successfully! DB updated and notification sent.' 
+      message: 'Lead processed successfully! DB updated, Mail and WhatsApp webhook triggered.' 
     });
 
   } catch (error) {
