@@ -178,3 +178,8 @@ p{font-size: 15px;}
 li{font-size: 15px;}
 .accordion-body{font-size: 15px;}
 .lp-cta-text{font-size: 15px;}
+
+/* ---------- Services: capability bullets inside cards ---------- */
+.lp-svc-list { list-style: none; padding: 0; margin: 0 0 1.1rem; display: grid; gap: .4rem; font-size: .9rem; color: var(--lp-text); }
+.lp-svc-list li { position: relative; padding-left: 1.1rem; }
+.lp-svc-list li::before { content: ""; position: absolute; left: 0; top: .55em; width: 6px; height: 6px; border-radius: 50%; background: var(--lp-gold); }
