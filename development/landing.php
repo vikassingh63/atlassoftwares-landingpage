@@ -1,3 +1,4 @@
+<?php include('dev_inc.php') ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -41,7 +42,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
-    <link rel="stylesheet" href="assets/css/landing.css" />
+    <link rel="stylesheet" href="<?= $dev_fullurl ?>assets/css/landing.css" />
 
     <script
       async
@@ -65,7 +66,7 @@
         <div class="container">
           <a class="navbar-brand" href="#home"
             ><img
-              src="assets/images/logo.png"
+              src="<?= $dev_fullurl ?>assets/images/logo.png"
               width="150"
               height="36"
               alt="Atlas Softwares"
@@ -115,10 +116,12 @@
           <div class="row align-items-center g-5">
             <div class="col-lg-6">
               <p class="lp-eyebrow lp-eyebrow-light">
-                Custom web development &middot; PHP &amp; MySQL
+                Custom web development
+                <!-- &middot; PHP &amp; MySQL -->
               </p>
               <h1 class="lp-hero-title">
-                We Build Digital Experiences That Move Businesses Forward.
+                <!-- We Build Digital Experiences That Move Businesses Forward. -->
+                Custom Website & Software Development for Growing Businesses
               </h1>
               <p class="lp-hero-sub">
                 From business websites to database-driven web applications, we
@@ -138,14 +141,14 @@
               <div class="lp-hero-visual">
                 <img
                   class="lp-hero-img"
-                  src="assets/images/projects/business-dashboard.svg"
+                  src="<?= $dev_fullurl ?>assets/images/projects/business-dashboard.svg"
                   width="800"
                   height="500"
                   alt="Concept business dashboard interface"
                 />
                 <img
                   class="lp-hero-img lp-hero-img-2"
-                  src="assets/images/projects/corporate-website.svg"
+                  src="<?= $dev_fullurl ?>assets/images/projects/corporate-website.svg"
                   width="800"
                   height="500"
                   alt=""
@@ -399,7 +402,7 @@
             <div class="col-lg-6 order-lg-2">
               <img
                 class="img-fluid lp-about-img"
-                src="assets/images/about-workspace.svg"
+                src="<?= $dev_fullurl ?>assets/images/about-workspace.svg"
                 width="800"
                 height="600"
                 loading="lazy"
@@ -456,7 +459,7 @@
               <article class="lp-project h-100">
                 <div class="lp-project-media">
                   <img
-                    src="assets/images/projects/corporate-website.svg"
+                    src="<?= $dev_fullurl ?>assets/images/projects/corporate-website.svg"
                     width="800"
                     height="500"
                     loading="lazy"
@@ -483,7 +486,7 @@
               <article class="lp-project h-100">
                 <div class="lp-project-media">
                   <img
-                    src="assets/images/projects/business-dashboard.svg"
+                    src="<?= $dev_fullurl ?>assets/images/projects/business-dashboard.svg"
                     width="800"
                     height="500"
                     loading="lazy"
@@ -510,7 +513,7 @@
               <article class="lp-project h-100">
                 <div class="lp-project-media">
                   <img
-                    src="assets/images/projects/real-estate-portal.svg"
+                    src="<?= $dev_fullurl ?>assets/images/projects/real-estate-portal.svg"
                     width="800"
                     height="500"
                     loading="lazy"
@@ -1222,7 +1225,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="assets/js/landing-static.js"></script>
+    <script src="<?= $dev_fullurl ?>assets/js/landing-static.js"></script>
     <script>
       $(".navbar-nav a").click(function () {
         $(".navbar-nav a").removeClass("active");

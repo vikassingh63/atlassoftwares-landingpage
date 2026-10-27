@@ -1,0 +1,8 @@
+RewriteEngine On
+
+DirectoryIndex index.php
+
+
+RewriteRule ^custom-web-department/$ landing.php [L]
+
+# RewriteRule ^department/([^/]+)/?$ faculties-details.php?slug=$1 [L,QSA]
