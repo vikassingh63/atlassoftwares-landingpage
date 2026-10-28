@@ -1,3 +1,4 @@
+<?php include('inc.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="<?= $fullurl ?>assets/css/styles.css">
 
 
 <!-- Google tag (gtag.js) -->
@@ -47,7 +48,7 @@
       <span class="logo-text">Atlas Softwares</span>
     </a> -->
     <a class="logo" href="https://atlassoftwares.com/#top">
-      <img width="150" src="assets/images/logo.png" alt="Atlas Softwares">
+      <img width="150" src="<?= $fullurl ?>assets/images/logo.png" alt="Atlas Softwares">
     </a>
     <nav class="topnav" aria-label="Primary">
       <a href="https://atlassoftwares.com/about-us.html">About us</a>
@@ -245,7 +246,9 @@
 </footer>
 
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-<script src="assets/js/main.js"></script>
-
+<script src="<?= $fullurl ?>assets/js/main.js"></script>
+<script>
+  console.log('test')
+</script>
 </body>
 </html>
