@@ -11,7 +11,7 @@
       name="description"
       content="Atlas Softwares builds custom websites, web applications, CMS, e-commerce, integrations and business software with responsive, secure and maintainable code."
     />
-    <link rel="canonical" href="https://atlassoftwares.com/landing.html" />
+    <link rel="canonical" href="https://atlassoftwares.com/development/custom-web-department/" />
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
@@ -21,7 +21,7 @@
       property="og:description"
       content="Atlas Softwares builds custom websites, web applications, CMS, e-commerce, integrations and business software with responsive, secure and maintainable code."
     />
-    <meta property="og:url" content="https://atlassoftwares.com/landing.html" />
+    <meta property="og:url" content="https://atlassoftwares.com/development/custom-web-department/" />
     <meta
       property="og:image"
       content="https://atlassoftwares.com/assets/images/og-image.png"
@@ -42,7 +42,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
-    <link rel="stylesheet" href="<?= $dev_fullurl ?>assets/css/landing.css" />
+    <link rel="stylesheet" href="../assets/css/landing.css" />
 
     <script
       async
@@ -66,7 +66,7 @@
         <div class="container">
           <a class="navbar-brand" href="#home"
             ><img
-              src="<?= $dev_fullurl ?>assets/images/logo.png"
+              src="../assets/images/logo.png"
               width="150"
               height="36"
               alt="Atlas Softwares"
@@ -141,14 +141,14 @@
               <div class="lp-hero-visual">
                 <img
                   class="lp-hero-img"
-                  src="<?= $dev_fullurl ?>assets/images/projects/business-dashboard.svg"
+                  src="../assets/images/projects/business-dashboard.svg"
                   width="800"
                   height="500"
                   alt="Concept business dashboard interface"
                 />
                 <img
                   class="lp-hero-img lp-hero-img-2"
-                  src="<?= $dev_fullurl ?>assets/images/projects/corporate-website.svg"
+                  src="../assets/images/projects/corporate-website.svg"
                   width="800"
                   height="500"
                   alt=""
@@ -183,7 +183,7 @@
                   >
                     <path
                       d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"
-                    /></svg
+                    /></svg>
                 ></span>
                 <h2 class="h5">Custom Solutions</h2>
                 <p>
@@ -207,7 +207,7 @@
                   >
                     <path
                       d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm5 17h.01"
-                    /></svg
+                    /></svg>
                 ></span>
                 <h2 class="h5">Responsive Design</h2>
                 <p>
@@ -232,7 +232,7 @@
                   >
                     <path
                       d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3zm-3 10l2 2 4-4"
-                    /></svg
+                    /></svg>
                 ></span>
                 <h2 class="h5">Secure Development</h2>
                 <p>
@@ -255,7 +255,7 @@
                     stroke-linejoin="round"
                     aria-hidden="true"
                   >
-                    <path d="M4 20V10m6 10V4m6 16v-7m6 7H2" /></svg
+                    <path d="M4 20V10m6 10V4m6 16v-7m6 7H2" /></svg>
                 ></span>
                 <h2 class="h5">Scalable Architecture</h2>
                 <p>
@@ -402,7 +402,7 @@
             <div class="col-lg-6 order-lg-2">
               <img
                 class="img-fluid lp-about-img"
-                src="<?= $dev_fullurl ?>assets/images/about-workspace.svg"
+                src="../assets/images/about-workspace.svg"
                 width="800"
                 height="600"
                 loading="lazy"
@@ -459,7 +459,7 @@
               <article class="lp-project h-100">
                 <div class="lp-project-media">
                   <img
-                    src="<?= $dev_fullurl ?>assets/images/projects/corporate-website.svg"
+                    src="../assets/images/projects/corporate-website.svg"
                     width="800"
                     height="500"
                     loading="lazy"
@@ -486,7 +486,7 @@
               <article class="lp-project h-100">
                 <div class="lp-project-media">
                   <img
-                    src="<?= $dev_fullurl ?>assets/images/projects/business-dashboard.svg"
+                    src="../assets/images/projects/business-dashboard.svg"
                     width="800"
                     height="500"
                     loading="lazy"
@@ -513,7 +513,7 @@
               <article class="lp-project h-100">
                 <div class="lp-project-media">
                   <img
-                    src="<?= $dev_fullurl ?>assets/images/projects/real-estate-portal.svg"
+                    src="../assets/images/projects/real-estate-portal.svg"
                     width="800"
                     height="500"
                     loading="lazy"
@@ -670,7 +670,7 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   >
-                    <path d="M5 12l5 5 9-10" /></svg
+                    <path d="M5 12l5 5 9-10" /></svg>
                 ></span>
                 <div>
                   <h3 class="h6">Custom-built solutions</h3>
@@ -693,7 +693,7 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   >
-                    <path d="M5 12l5 5 9-10" /></svg
+                    <path d="M5 12l5 5 9-10" /></svg>
                 ></span>
                 <div>
                   <h3 class="h6">Responsive design</h3>
@@ -716,7 +716,7 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   >
-                    <path d="M5 12l5 5 9-10" /></svg
+                    <path d="M5 12l5 5 9-10" /></svg>
                 ></span>
                 <div>
                   <h3 class="h6">Maintainable code</h3>
@@ -740,7 +740,7 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   >
-                    <path d="M5 12l5 5 9-10" /></svg
+                    <path d="M5 12l5 5 9-10" /></svg>
                 ></span>
                 <div>
                   <h3 class="h6">Security-conscious development</h3>
@@ -764,7 +764,7 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   >
-                    <path d="M5 12l5 5 9-10" /></svg
+                    <path d="M5 12l5 5 9-10" /></svg>
                 ></span>
                 <div>
                   <h3 class="h6">Clear communication</h3>
@@ -1225,7 +1225,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="<?= $dev_fullurl ?>assets/js/landing-static.js"></script>
+    <script src="assets/js/landing-static.js"></script>
     <script>
       $(".navbar-nav a").click(function () {
         $(".navbar-nav a").removeClass("active");
