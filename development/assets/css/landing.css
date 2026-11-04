@@ -130,6 +130,7 @@ h2 {
 }
 .lp-header .navbar {
   padding: 0.2rem 0;
+  background: #e7efff;
 }
 .lp-header .nav-link {
   font-weight: 500;
@@ -269,6 +270,7 @@ h2 {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
+  display: none;
 }
 .lp-dot {
   width: 8px;
@@ -778,13 +780,13 @@ li {
   position: fixed;
   right: 25px;
   bottom: 25px;
-  width: 45px;
-  height: 45px;
+  width: 36px;
+  height: 36px;
   border: none;
-  border-radius: 8px;
-  background: #0d6efd;
+  border-radius: 50px;
+  background: #101f3c;
   color: #fff;
-  font-size: 24px;
+  font-size: 18px;
   cursor: pointer;
   display: none;
   z-index: 9999;
@@ -794,4 +796,31 @@ li {
 #backToTop:hover {
   background: #084298;
   transform: translateY(-4px);
+}
+.top-quick-links {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin-left: 10px;
+}
+.top-quick-links a {
+  color: #000f2c;
+  text-decoration: none;
+  font-size: 12px;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+.ti.ti-mail{
+  margin-top: 2px;
+}
+.lp-marquee{
+  position: relative;
+  top: 15px;
+  background: #000f2c;
+  color: white;
+  font-size: 13px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
